@@ -1,4 +1,4 @@
-# SharpTime is a micro-library for a DateTime built with testing in mind
+﻿# SharpTime is a micro-library for a DateTime built with testing in mind
 
 ### Normal Usage
 
@@ -13,7 +13,7 @@ If you need to specifically set the UTC DateTime returned by SharpTime, you can 
 ```
 using (SharpTime.UseSpecificDateTimeUtc(new DateTime(2020, 12, 25)))
 {
-   var utcNow = SharpTime.UtcNow; // will return Christmas!
+   var utcNow = SharpTime.UtcNow; // will return Christmas! 🎅
 }
 ```
 
