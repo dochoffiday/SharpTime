@@ -3,12 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTime", "SharpTime\SharpTime.csproj", "{1EA5B332-749F-4F3D-8FAE-01CF549E7B6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpTime", "SharpTime\SharpTime.csproj", "{1EA5B332-749F-4F3D-8FAE-01CF549E7B6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTime.UnitTests", "SharpTime.UnitTests\SharpTime.UnitTests.csproj", "{4A127B54-A8B3-442F-BF33-19F926596634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpTime.UnitTests", "SharpTime.UnitTests\SharpTime.UnitTests.csproj", "{4A127B54-A8B3-442F-BF33-19F926596634}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{362B5C46-2735-424D-A90E-2557421FB879}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish-to-nuget.yml = .github\workflows\publish-to-nuget.yml
 		readme.md = readme.md
 	EndProjectSection
 EndProject
