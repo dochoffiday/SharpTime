@@ -22,7 +22,7 @@ namespace SharpTime
 
         public static IDisposable UseSpecificDateTimeUtc(DateTime dateTimeUtc)
         {
-            if (_dateTimeUtc.HasValue) throw new InvalidOperationException("SystemTime is already locked");
+            if (_dateTimeUtc.HasValue) throw new InvalidOperationException("SharpTime is already locked");
 
             _dateTimeUtc = dateTimeUtc;
 
