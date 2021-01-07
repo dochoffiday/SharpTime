@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SharpTime.UnitTests
+namespace UnitTests
 {
     public class SharpTimeTests
     {
