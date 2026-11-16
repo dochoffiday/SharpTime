@@ -6,27 +6,35 @@ on:
   pull_request:
     branches: [ main ]
 
+permissions:
+  contents: read
+  id-token: write # required by NuGet/login to get an OIDC token for trusted publishing
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v4
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: '10.x'
     - name: Install dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
-    - name: NuGet login
+      run: dotnet test --configuration Release --no-build --verbosity normal
+    - name: Pack
+      run: dotnet pack SharpTime/SharpTime.csproj --configuration Release --no-build --output ./nupkgs
+    - name: NuGet login (trusted publishing)
+      if: github.event_name == 'push'
       uses: NuGet/login@v1
       id: nuget-login
       with:
         user: ${{ secrets.NUGET_USER }}
     - name: Push to NuGet.org
+      if: github.event_name == 'push'
       run: dotnet nuget push "./nupkgs/*.nupkg" --api-key ${{ steps.nuget-login.outputs.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
